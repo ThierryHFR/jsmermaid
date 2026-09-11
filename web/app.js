@@ -95,6 +95,7 @@ source.value = localStorage.getItem("mermaid-source") || initialDiagram();
 function render() {
   clearTimeout(renderTimer);
   renderTimer = setTimeout(async () => {
+    removeMermaidErrorOutput();
     const code = source.value.trim() || `flowchart TD\n  A[${t("emptyDiagram")}]`;
     $("status").textContent = t("rendering");
     $("error").hidden = true;
@@ -106,12 +107,15 @@ function render() {
         securityLevel: "strict",
       });
       const result = await mermaid.render(`diagram-${Date.now()}`, code);
+      removeMermaidErrorOutput();
       lastSvg = result.svg;
       preview.innerHTML = result.svg;
       makeDiagramInteractive();
       if ($( "transparent").checked) preview.style.backgroundColor = "transparent";
       else preview.style.backgroundColor = $("background").value;
       $("status").textContent = t("upToDate");
+      $("error").textContent = "";
+      $("error").hidden = true;
       localStorage.setItem("mermaid-source", source.value);
     } catch (error) {
       $("status").textContent = t("syntaxError");
@@ -206,7 +210,11 @@ function exportableSvg(svg) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n${xml.replace(attributes, updatedAttributes)}`;
 }
 
-$("source").addEventListener("input", render);
+$("source").addEventListener("input", () => {
+  $("error").textContent = "";
+  $("error").hidden = true;
+  render();
+});
 ["theme", "layout", "background", "transparent"].forEach((id) => $(id).addEventListener("change", render));
 $("example").addEventListener("change", (event) => { source.value = diagramsForLanguage()[event.target.value]; render(); });
 $("reset").addEventListener("click", () => { source.value = initialDiagram(); $("theme").value = "default"; render(); });
