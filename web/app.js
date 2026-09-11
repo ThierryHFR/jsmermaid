@@ -15,6 +15,7 @@ const translations = {
     shortcuts: "Shortcuts", downloadCode: "Download code", refreshPreview: "Refresh preview",
     offline: "Standalone application — no network access required", footer: "Mermaid Studio · open source Mermaid engine",
     emptyDiagram: "Empty diagram", invalidSvg: "The SVG output is invalid.",
+    newDiagram: "New diagram", newDiagramPrompt: "Diagram name:", defaultDiagramName: "My diagram", savedDiagrams: "Saved diagrams",
     examples: { workflow: "Workflow", sequence: "Sequence", classes: "Classes", gantt: "Gantt" },
   },
   fr: {
@@ -28,6 +29,7 @@ const translations = {
     shortcuts: "Raccourcis", downloadCode: "Télécharger le code", refreshPreview: "Rafraîchir l’aperçu",
     offline: "Application autonome — aucun accès réseau requis", footer: "Mermaid Studio · moteur Mermaid open source",
     emptyDiagram: "Diagramme vide", invalidSvg: "Le rendu SVG est invalide.",
+    newDiagram: "Nouveau diagramme", newDiagramPrompt: "Nom du diagramme :", defaultDiagramName: "Mon diagramme", savedDiagrams: "Diagrammes enregistrés",
     examples: { workflow: "Flux de travail", sequence: "Séquence", classes: "Classes", gantt: "Gantt" },
   },
 };
