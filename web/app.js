@@ -15,7 +15,7 @@ const translations = {
     shortcuts: "Shortcuts", downloadCode: "Download code", refreshPreview: "Refresh preview",
     offline: "Standalone application — no network access required", footer: "Mermaid Studio · open source Mermaid engine",
     emptyDiagram: "Empty diagram", invalidSvg: "The SVG output is invalid.",
-    newDiagram: "New diagram", newDiagramPrompt: "Diagram name:", defaultDiagramName: "My diagram", savedDiagrams: "Saved diagrams",
+    newDiagram: "New diagram", newDiagramPrompt: "Diagram name:", defaultDiagramName: "My diagram", savedDiagrams: "Saved diagrams", deleteDiagram: "Delete diagram", confirmDeleteDiagram: "Delete this diagram?",
     examples: { workflow: "Workflow", sequence: "Sequence", classes: "Classes", gantt: "Gantt" },
   },
   fr: {
@@ -29,7 +29,7 @@ const translations = {
     shortcuts: "Raccourcis", downloadCode: "Télécharger le code", refreshPreview: "Rafraîchir l’aperçu",
     offline: "Application autonome — aucun accès réseau requis", footer: "Mermaid Studio · moteur Mermaid open source",
     emptyDiagram: "Diagramme vide", invalidSvg: "Le rendu SVG est invalide.",
-    newDiagram: "Nouveau diagramme", newDiagramPrompt: "Nom du diagramme :", defaultDiagramName: "Mon diagramme", savedDiagrams: "Diagrammes enregistrés",
+    newDiagram: "Nouveau diagramme", newDiagramPrompt: "Nom du diagramme :", defaultDiagramName: "Mon diagramme", savedDiagrams: "Diagrammes enregistrés", deleteDiagram: "Supprimer le diagramme", confirmDeleteDiagram: "Supprimer ce diagramme ?",
     examples: { workflow: "Flux de travail", sequence: "Séquence", classes: "Classes", gantt: "Gantt" },
   },
 };
@@ -49,6 +49,18 @@ Object.assign(translations, {
   ko: { ...translations.en, exampleLabel: "예제", copy: "복사", copied: "복사됨!", download: ".mmd 다운로드", reset: "초기화", editor: "편집기", yourDiagram: "다이어그램", ready: "준비됨", rendering: "렌더링 중…", upToDate: "최신 상태", syntaxError: "구문 오류", hint: "팁: 코드를 편집하면 미리보기가 자동으로 업데이트됩니다.", livePreview: "실시간 미리보기", render: "렌더링", customization: "사용자 지정", options: "옵션", theme: "테마", themeDefault: "기본", themeDark: "어두운 테마", themeForest: "숲", themeNeutral: "중립", layout: "레이아웃", backgroundColor: "배경색", transparentBackground: "투명한 배경", shortcuts: "바로가기", downloadCode: "코드 다운로드", refreshPreview: "미리보기 새로 고침", offline: "독립 실행형 애플리케이션 — 네트워크 액세스가 필요하지 않습니다", footer: "Mermaid Studio · 오픈 소스 Mermaid 엔진", emptyDiagram: "빈 다이어그램", newDiagram: "새 다이어그램", newDiagramPrompt: "다이어그램 이름:", defaultDiagramName: "내 다이어그램", savedDiagrams: "저장된 다이어그램", examples: { workflow: "워크플로", sequence: "시퀀스", classes: "클래스", gantt: "간트" } },
   ar: { ...translations.en, exampleLabel: "مثال", copy: "نسخ", copied: "تم النسخ!", download: "تنزيل .mmd", reset: "إعادة تعيين", editor: "المحرر", yourDiagram: "المخطط الخاص بك", ready: "جاهز", rendering: "جارٍ العرض…", upToDate: "محدّث", syntaxError: "خطأ نحوي", hint: "تلميح: عدّل التعليمات البرمجية وسيتم تحديث المعاينة تلقائيًا.", livePreview: "معاينة مباشرة", render: "العرض", customization: "التخصيص", options: "الخيارات", theme: "السمة", themeDefault: "افتراضي", themeDark: "داكن", themeForest: "غابة", themeNeutral: "محايد", layout: "التخطيط", backgroundColor: "لون الخلفية", transparentBackground: "خلفية شفافة", shortcuts: "اختصارات", downloadCode: "تنزيل التعليمات البرمجية", refreshPreview: "تحديث المعاينة", offline: "تطبيق مستقل — لا يتطلب الوصول إلى الشبكة", footer: "Mermaid Studio · محرك Mermaid مفتوح المصدر", emptyDiagram: "مخطط فارغ", newDiagram: "مخطط جديد", newDiagramPrompt: "اسم المخطط:", defaultDiagramName: "مخططي", savedDiagrams: "المخططات المحفوظة", examples: { workflow: "سير العمل", sequence: "تسلسل", classes: "فئات", gantt: "مخطط جانت" } },
 });
+
+Object.assign(translations.de, { deleteDiagram: "Diagramm löschen", confirmDeleteDiagram: "Dieses Diagramm löschen?" });
+Object.assign(translations.es, { deleteDiagram: "Eliminar diagrama", confirmDeleteDiagram: "¿Eliminar este diagrama?" });
+Object.assign(translations.it, { deleteDiagram: "Elimina diagramma", confirmDeleteDiagram: "Eliminare questo diagramma?" });
+Object.assign(translations.pt, { deleteDiagram: "Excluir diagrama", confirmDeleteDiagram: "Excluir este diagrama?" });
+Object.assign(translations.nl, { deleteDiagram: "Diagram verwijderen", confirmDeleteDiagram: "Dit diagram verwijderen?" });
+Object.assign(translations.pl, { deleteDiagram: "Usuń diagram", confirmDeleteDiagram: "Usunąć ten diagram?" });
+Object.assign(translations.ru, { deleteDiagram: "Удалить диаграмму", confirmDeleteDiagram: "Удалить эту диаграмму?" });
+Object.assign(translations.zh, { deleteDiagram: "删除图表", confirmDeleteDiagram: "删除此图表？" });
+Object.assign(translations.ja, { deleteDiagram: "ダイアグラムを削除", confirmDeleteDiagram: "このダイアグラムを削除しますか？" });
+Object.assign(translations.ko, { deleteDiagram: "다이어그램 삭제", confirmDeleteDiagram: "이 다이어그램을 삭제하시겠습니까?" });
+Object.assign(translations.ar, { deleteDiagram: "حذف المخطط", confirmDeleteDiagram: "هل تريد حذف هذا المخطط؟" });
 
 const exampleDiagrams = {
   en: {
@@ -116,12 +128,14 @@ function renderDiagramList() {
   const list = $("diagram-list");
   list.replaceChildren();
   diagrams.forEach((diagram) => {
+    const row = document.createElement("div");
+    row.className = "diagram-row";
+    row.setAttribute("role", "listitem");
     const item = document.createElement("button");
     item.type = "button";
     item.className = `diagram-item${diagram.id === activeDiagramId ? " active" : ""}`;
     item.textContent = diagram.name;
     item.title = diagram.name;
-    item.setAttribute("role", "listitem");
     item.addEventListener("click", () => {
       if (diagram.id === activeDiagramId) return;
       saveCurrentDiagram();
@@ -131,8 +145,37 @@ function renderDiagramList() {
       renderDiagramList();
       render();
     });
-    list.appendChild(item);
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "diagram-delete";
+    deleteButton.textContent = "×";
+    deleteButton.title = t("deleteDiagram");
+    deleteButton.setAttribute("aria-label", t("deleteDiagram"));
+    deleteButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      deleteDiagram(diagram.id);
+    });
+    row.append(item, deleteButton);
+    list.appendChild(row);
   });
+}
+
+function deleteDiagram(id) {
+  const diagram = diagrams.find((item) => item.id === id);
+  if (!diagram || !window.confirm(t("confirmDeleteDiagram"))) return;
+  saveCurrentDiagram();
+  const deletedIndex = diagrams.findIndex((item) => item.id === id);
+  diagrams = diagrams.filter((item) => item.id !== id);
+  if (!diagrams.length) {
+    diagrams = [{ id: createDiagramId(), name: t("defaultDiagramName"), source: initialDiagram() }];
+  }
+  if (id === activeDiagramId) {
+    activeDiagramId = diagrams[Math.min(deletedIndex, diagrams.length - 1)].id;
+    source.value = diagrams.find((item) => item.id === activeDiagramId).source;
+  }
+  saveDiagrams();
+  renderDiagramList();
+  render();
 }
 
 function loadDiagrams() {

@@ -30,6 +30,7 @@ below.
   - `Ctrl`/`Cmd` + `S`: download the Mermaid source.
   - `Ctrl`/`Cmd` + `Enter`: refresh the preview.
 - Multiple diagrams, their names, and their Mermaid source are saved locally in the browser with `localStorage`.
+- Existing diagrams can be deleted locally after confirmation.
 - No server-side application, database, or external API is required.
 
 ## Automatic language detection
