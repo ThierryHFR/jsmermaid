@@ -18,6 +18,7 @@ below.
 ## Features
 
 - Live Mermaid editor with automatic preview updates.
+- Clickable diagram nodes and edges that select the matching source line in the editor.
 - Built-in examples for workflow, sequence, class, and Gantt diagrams.
 - Mermaid themes: `default`, `dark`, `forest`, and `neutral`.
 - Layout engines: Dagre and ELK.
