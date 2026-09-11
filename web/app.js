@@ -287,7 +287,7 @@ $("new-diagram").addEventListener("click", () => {
   if (name === null) return;
   const diagramName = name.trim() || `${t("defaultDiagramName")} ${diagrams.length + 1}`;
   saveCurrentDiagram();
-  const diagram = { id: createDiagramId(), name: diagramName, source: "" };
+  const diagram = { id: createDiagramId(), name: diagramName, source: initialDiagram() };
   diagrams.push(diagram);
   activeDiagramId = diagram.id;
   source.value = diagram.source;
