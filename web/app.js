@@ -108,6 +108,7 @@ function render() {
       const result = await mermaid.render(`diagram-${Date.now()}`, code);
       lastSvg = result.svg;
       preview.innerHTML = result.svg;
+      makeDiagramInteractive();
       if ($( "transparent").checked) preview.style.backgroundColor = "transparent";
       else preview.style.backgroundColor = $("background").value;
       $("status").textContent = t("upToDate");
@@ -118,6 +119,62 @@ function render() {
       $("error").hidden = false;
     }
   }, 180);
+}
+
+function removeMermaidErrorOutput() {
+  document.querySelectorAll("body svg").forEach((svg) => {
+    if (svg.querySelector(".error-icon, .error-text")) svg.remove();
+  });
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function findSourceLines(identifiers) {
+  const normalized = identifiers.filter(Boolean).map((identifier) => identifier.trim());
+  if (!normalized.length) return [];
+  const lines = source.value.split("\n");
+  const matches = [];
+  lines.forEach((line, index) => {
+    if (normalized.every((identifier) => new RegExp(`\\b${escapeRegExp(identifier)}\\b`).test(line))) matches.push(index);
+  });
+  return matches;
+}
+
+function getElementIdentifiers(element) {
+  const node = element.closest(".node");
+  if (node?.id) {
+    const match = node.id.match(/^(?:flowchart|class|state|journey|er)-(.+)-\d+$/);
+    return match ? [match[1]] : [];
+  }
+
+  const edge = element.closest(".edgePath, .edgeLabel");
+  const edgeId = edge?.id || element.closest("[id]")?.id || "";
+  const match = edgeId.match(/^L-(.+)-(.+)-\d+(?:-label)?$/);
+  if (!match) return [];
+  return match.slice(1);
+}
+
+function selectSourceLines(lineIndexes) {
+  if (!lineIndexes.length) return;
+  const firstLine = Math.min(...lineIndexes);
+  const lastLine = Math.max(...lineIndexes);
+  const lines = source.value.split("\n");
+  const start = lines.slice(0, firstLine).reduce((length, line) => length + line.length + 1, 0);
+  const end = start + lines.slice(firstLine, lastLine + 1).join("\n").length;
+  source.focus();
+  source.setSelectionRange(start, end);
+}
+
+function makeDiagramInteractive() {
+  preview.querySelectorAll(".node, .edgePath, .edgeLabel").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const identifiers = getElementIdentifiers(element);
+      selectSourceLines(findSourceLines(identifiers));
+    });
+  });
 }
 
 function download(name, content, type) {
