@@ -1,0 +1,71 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- Copyright (C) 2026 Mermaid Studio contributors -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'none'" />
+    <title>Mermaid Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◇</span><span>Mermaid Studio</span></div>
+      <div class="toolbar">
+        <label><span data-i18n="exampleLabel">Example</span> <select id="example"></select></label>
+        <button id="copy" class="secondary" data-i18n="copy">Copy</button>
+        <button id="download" data-i18n="download">Download .mmd</button>
+        <button id="reset" class="secondary" data-i18n="reset">Reset</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel source-panel">
+        <div class="panel-heading">
+          <div><span class="eyebrow" data-i18n="editor">Editor</span><h1 data-i18n="yourDiagram">Your diagram</h1></div>
+          <span id="status" class="status" data-i18n="ready">Ready</span>
+        </div>
+        <textarea id="source" spellcheck="false" data-i18n-aria-label="mermaidCode" aria-label="Mermaid code"></textarea>
+        <div class="hint" data-i18n="hint">Tip: edit the code and the preview updates automatically.</div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="panel-heading">
+          <div><span class="eyebrow" data-i18n="livePreview">Live preview</span><h1 data-i18n="render">Render</h1></div>
+          <div class="preview-actions">
+            <button id="export-svg" class="secondary" data-i18n="svg">SVG</button>
+            <button id="export-png" data-i18n="png">PNG</button>
+            <button id="export-pdf" data-i18n="pdf">PDF</button>
+          </div>
+        </div>
+        <div id="preview" class="preview" role="img" data-i18n-aria-label="diagramPreview" aria-label="Aperçu du diagramme"></div>
+        <div id="error" class="error" hidden></div>
+      </section>
+
+      <aside class="panel options-panel">
+        <div class="panel-heading"><div><span class="eyebrow" data-i18n="customization">Customization</span><h1 data-i18n="options">Options</h1></div></div>
+        <label><span data-i18n="theme">Theme</span>
+          <select id="theme"><option value="default" data-i18n="themeDefault">Default</option><option value="dark" data-i18n="themeDark">Dark</option><option value="forest" data-i18n="themeForest">Forest</option><option value="neutral" data-i18n="themeNeutral">Neutral</option></select>
+        </label>
+        <label><span data-i18n="layout">Layout</span>
+          <select id="layout"><option value="dagre">Dagre</option><option value="elk">ELK</option></select>
+        </label>
+        <label><span data-i18n="backgroundColor">Background color</span>
+          <input id="background" type="color" value="#ffffff" />
+        </label>
+        <label class="check"><input id="transparent" type="checkbox" /> <span data-i18n="transparentBackground">Transparent background</span></label>
+        <div class="separator"></div>
+        <p class="option-title" data-i18n="shortcuts">Shortcuts</p>
+        <p class="shortcut"><kbd>Ctrl</kbd> + <kbd>S</kbd><span data-i18n="downloadCode">Download code</span></p>
+        <p class="shortcut"><kbd>Ctrl</kbd> + <kbd>Enter</kbd><span data-i18n="refreshPreview">Refresh preview</span></p>
+        <span class="original-link" data-i18n="offline">Standalone application — no network access required</span>
+      </aside>
+    </main>
+    <footer data-i18n="footer">Mermaid Studio · open source Mermaid engine</footer>
+    <script src="assets/mermaid.min.js"></script>
+    <script src="assets/mermaid-layout-elk.js"></script>
+    <script src="app.js?v=7"></script>
+  </body>
+</html>

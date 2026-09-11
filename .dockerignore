@@ -1,0 +1,6 @@
+.git
+.agents
+.codex
+README.md
+Dockerfile
+docker-compose.yml

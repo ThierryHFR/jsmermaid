@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Mermaid Studio contributors
+
+services:
+  mermaid:
+    build:
+      context: .
+    ports:
+      - "${MERMAID_PORT:-8080}:8080"
+    restart: unless-stopped

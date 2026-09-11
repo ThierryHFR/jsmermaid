@@ -1,0 +1,39 @@
+# Désactiver l'affichage du contenu des dossiers
+Options -Indexes
+
+# Utiliser index.html comme page d'accueil
+DirectoryIndex index.html
+
+# Bloquer les fichiers cachés et fichiers sensibles
+<FilesMatch "^\.|(\.env|\.git|\.gitignore|composer\.(json|lock)|package(-lock)?\.json|.*\.(bak|old|log|sql|sh|config))$">
+    Require all denied
+</FilesMatch>
+
+# Bloquer l'accès aux fichiers source et cartes source
+<FilesMatch "\.(map|md|txt)$">
+    Require all denied
+</FilesMatch>
+
+# Forcer HTTPS sur OVH
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# En-têtes de sécurité
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+    Header always set Content-Security-Policy "default-src 'self'; connect-src 'none'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'
+    data:; object-src 'none'; base-uri 'none'"
+</IfModule>
+
+# Mise en cache des fichiers statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/svg+xml "access plus 7 days"
+</IfModule>
